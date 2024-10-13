@@ -9,12 +9,13 @@ const Currentorders = () => {
     const url = useSelector(state=>state.user.url);
     const orders = useSelector(state=>state.order.orderList);
     const dispatch = useDispatch();
+    
     useEffect(()=>{
         axios.get(`${url}/orders/${email}`).then(res=>{
-            console.log(res.data);
             dispatch(setOrderList(res.data));
         })
-    },[])
+    },[]);
+
     return (
         <main className="currentOrders">
            <h2>Current Orders</h2>

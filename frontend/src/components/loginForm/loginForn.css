@@ -4,15 +4,18 @@
     align-items: center; 
     
 }
-.login h1{
+
+.login h1, .login span{
     text-align: center;
 }
+
 .loginForm{
     width : 400px; 
     height : fit-content;
     padding-bottom: 50px;
-    margin: auto;
+    margin: auto; 
 }
+
 .labelInput{   
     display: flex; 
     flex-direction: column;
@@ -33,14 +36,15 @@
     margin: auto;
 }
 .labelInput input:hover{
-    border: 2px solid navy;
+    border: 2px solid skyblue;
 }  
 .loginSection{
     display: flex;
     justify-content: center;
-    padding-top: 10px;
+    padding: 10px 0px; 
+    
 }
-.login p{
+.errorMessage{
     text-align: center;
     color: red;
     margin: 0px;
@@ -51,5 +55,14 @@
     padding : 10px;
     border-radius: 10px;
     font-weight: 600;
+    background: linear-gradient(180deg, #363636 0%, #1b1b1b 50%, #000000 100%);
+    color: white;
     margin: auto;
+} 
+.login button:hover{
+    cursor: pointer;
+}
+.formRoutes{
+    text-align: center;
+    
 }

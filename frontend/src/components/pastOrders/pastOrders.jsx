@@ -4,6 +4,7 @@ import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
 import { setOrderList } from '../../features/order';
 import Order from '../order/order';
+
 const Pastorders = () => {
     const email = useSelector(state=>state.user.user.email);
     const url = useSelector(state=>state.user.url);
@@ -12,7 +13,6 @@ const Pastorders = () => {
 
     useEffect(()=>{
         axios.get(`${url}/orders/${email}`).then(res=>{
-            console.log(res.data);
             dispatch(setOrderList(res.data));
         })
     },[])

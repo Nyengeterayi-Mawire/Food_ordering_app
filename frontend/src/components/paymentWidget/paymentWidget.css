@@ -27,7 +27,6 @@
 .paymentFormHeader{
     margin: none;
     text-align: center;
-    /* border: 1px solid red; */
 }
 .inputContainer{
     display: flex;
@@ -45,7 +44,6 @@
     background-color: #f2f2f2;   
     border: 2px solid #f2f2f2;
     outline: none;
-    /* color: #8b8e98; */
 } 
 
 .paymentInput:focus{
@@ -61,7 +59,6 @@
 .paymentCheckoutContainer{
     display: flex;
     padding: 10px 5px;
-    /* border: 1px solid red; */
 }
 .checkoutButton{
     width: 100%;

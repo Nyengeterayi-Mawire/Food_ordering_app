@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 const Receipt = () => {
     const display = useSelector(state=>state.order.displayReceipt);
     const {apartmentNumber,buildingNumber,streetName,fullName,email,cancelled,id,menus,createdAt} = useSelector(state=>state.order.receipt);
-    console.log(menus);
 
     return (
         <main className={`receipt ${display?'show':'hide'}`}>

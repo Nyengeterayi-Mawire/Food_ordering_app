@@ -72,7 +72,7 @@ const Sidebar = () => {
                         setActiveFavorites(false);
                         setActiveOrders(false);
                         dispatch(setDisplaySidebar());
-                        dispatch(setUser({})); 
+                        dispatch(setUser({user:{},token:''})); 
                         dispatch(setBasket([]));
                     }}>
                         <div className='route'>

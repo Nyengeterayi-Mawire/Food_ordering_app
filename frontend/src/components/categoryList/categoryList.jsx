@@ -6,6 +6,7 @@ import cokeImage from '../../assets/coke png.png';
 import iceCreamImage from '../../assets/icecream cup png.webp';
 import {Link} from 'react-router-dom';
 import './categoryList.css'
+
 const Categorylist = ({burgersRef,pizzasRef}) => {
     const handleScroll = (ref) => {
         ref.current.scrollIntoView({

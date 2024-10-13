@@ -23,7 +23,6 @@ const Menucontent = () => {
                 burgersRef={burgersRef}
                 pizzasRef={pizzasRef}
                 /> 
-                {/* <Menuitemwidget/>  */}
                 <Basketwidget/>
                 <Viewbasket/>   
                                 

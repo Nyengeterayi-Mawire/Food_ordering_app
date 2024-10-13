@@ -21,7 +21,7 @@ const userSchema = new schema({
     },
     phoneNumber : {
         type : Number,
-        required : true
+        default : 0
     }, 
     favorites : {
         type : Array,

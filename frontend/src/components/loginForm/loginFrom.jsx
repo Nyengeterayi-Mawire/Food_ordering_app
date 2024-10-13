@@ -3,7 +3,7 @@ import './loginForn.css'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { setUser } from '../../features/user';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = () => {
     const [loginData,setLoginData] = useState({email:'',password:''});
     const [error,setError] = useState('');
@@ -17,7 +17,6 @@ const Login = () => {
     }
     const submit = (e) => {
         e.preventDefault();
-        console.log(url);
         if(loginData.email.trim()==='' || loginData.password.trim()===''){
             setError('All fields must be filled')
         }else{
@@ -28,8 +27,12 @@ const Login = () => {
                     dispatch(setUser(res.data));
                     navigate('/home');
                 }
+            }).catch(error=>{
+                if(error.response.data.error){
+                    setError(error.response.data.error)
+
+                }
             })
-            // console.log(loginData)
         }
     }
     return (
@@ -48,11 +51,12 @@ const Login = () => {
                     </label>
                     <input name='password' onChange={handleFormInput}></input>
                 </section>
-                <p>{error}</p> 
+                <p className='errorMessage'>{error}</p> 
                 <section className='loginSection'>
-                    <button type='submit'>Login</button>
+                    <button type='submit'>Login</button> 
                 </section> 
-                
+                <p className='formRoutes'>Don't have an account?Click <Link to='/signup'>SignUp</Link></p>
+
 
             </form>
         </main>

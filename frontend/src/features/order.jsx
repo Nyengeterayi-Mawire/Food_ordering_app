@@ -19,7 +19,6 @@ export const orderSlice = createSlice({
             state.orderList = action.payload;            
         },
         setReceipt : (state,action) => {
-            console.log(action.payload);
             state.receipt = action.payload;
         },
         addOrder : (state,action) => {

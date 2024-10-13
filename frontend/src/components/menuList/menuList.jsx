@@ -46,11 +46,8 @@ const Menulist = ({burgersRef,pizzasRef}) => {
     }
    
 
-   console.log(check)
-   console.log('burgers',burgersRef);
     return (
         <main className="menuList">
-            {/* <button onClick={()=>handleScroll(check)}> Click to scroll</button> */}
             {
                 menuItems && menuItems.map((menuItem,index)=>{
                     return <section id={`${menuItem._id}`} className={`menuCategory ${showBurgers?'show':'hide'}`} key={index}>
@@ -64,10 +61,7 @@ const Menulist = ({burgersRef,pizzasRef}) => {
                     </section>
                 })
             }
-            {/* <section>
-               <div ref={check}>
-                <p>This is the ref section</p></div> 
-            </section> */}
+           
         </main>
     )
 }

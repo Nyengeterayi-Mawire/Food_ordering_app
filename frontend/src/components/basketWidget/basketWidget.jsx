@@ -4,7 +4,7 @@ import { setDisplayBasket } from "../../features/menu";
 const Basketwidget = () => {
     const basket = useSelector(state=>state.menu.basket);
     const dispatch = useDispatch()
-    console.log(basket)
+    
     return (
         <main className={`basketWidgetContainer ${basket.length!==0 ? 'show' : 'hide'}  `}>
             <button className="basketWidget" onClick={()=>dispatch(setDisplayBasket())}>

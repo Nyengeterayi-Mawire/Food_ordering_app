@@ -4,13 +4,8 @@ import LoginForm from '../components/loginForm/loginFrom';
 import './login.css';
 const Login = () => {
     return (
-        <main className="loginPage">
-            {/* <img src={loginImage}/> */}
-            <div className='image'>
-
-            </div>
+        <main className="loginPage">            
             <LoginForm/>
-
         </main>
     )
 }

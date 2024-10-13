@@ -6,6 +6,7 @@ import { addToBasket, setDisplayMenuItem } from '../../features/menu';
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { setFavorite } from '../../features/user';
+import { useNavigate } from 'react-router-dom';
 
 const Menuitemwidget = () => {
     const display = useSelector(state=>state.menu.displayMenuItem);
@@ -14,6 +15,7 @@ const Menuitemwidget = () => {
     const user = useSelector(state=>state.user.user);
     
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [price,setPrice] = useState(menuItem.price);
     const [quantity,setQuantity] = useState(1);
@@ -24,17 +26,34 @@ const Menuitemwidget = () => {
         setQuantity(1);
     },[menuItem]);  
 
-    useEffect(()=>{
+    useEffect(()=>{ 
         if(Object.keys(user).length!==0){
             const validSave = user.favorites.filter(menuId=>menuId === menuItem._id);
-            console.log('saved',validSave)
             if(validSave.length!==0){
                 setSaved(true);
             }else{
                 setSaved(false);
             }
         }
-    },[user.favorites,menuItem])
+    },[user.favorites,menuItem]) 
+
+    const handleSave = (e) => {
+        e.preventDefault(); 
+        if(user.email){
+            dispatch(setFavorite(menuItem._id));
+        }else{
+            navigate('/login')
+        }
+    }
+
+    const handleSaved = (e) => {
+        e.preventDefault(); 
+        if(user.email){
+            dispatch(setFavorite(menuItem._id));
+        }else{
+            navigate('/login')
+        }
+    }
 
     const handleAddQuantity = (e) => {
         e.preventDefault();
@@ -51,7 +70,7 @@ const Menuitemwidget = () => {
         dispatch(setDisplayMenuItem());
         setQuantity(1);
     }
-    console.log(menuItem)
+
     return (
         <main className={`menuItemWidget ${display ? 'show' : 'hide'}`}> 
             <section className='formSection'>
@@ -73,14 +92,8 @@ const Menuitemwidget = () => {
                     </section>
                     <section className='sumitSection' >
                         {saved?<>
-                            <button className='addToBasketButton' type='button' style={{backgroundColor:'lightgreen',marginRight:'10px'}} onClick={(e)=>{
-                                e.preventDefault();
-                                dispatch(setFavorite(menuItem._id));
-                            }}>Saved</button></> : <>
-                            <button className='addToBasketButton' type='button' style={{backgroundColor:'lightgreen',marginRight:'10px'}} onClick={(e)=>{
-                                e.preventDefault();
-                                dispatch(setFavorite(menuItem._id));
-                            }}>Save</button>
+                            <button className='addToBasketButton' type='button' style={{backgroundColor:'lightgreen',marginRight:'10px'}} onClick={handleSaved}>Saved</button></> : <>
+                            <button className='addToBasketButton' type='button' style={{backgroundColor:'lightgreen',marginRight:'10px'}} onClick={handleSave}>Save</button>
                         </>}
                         <button type='submit' className='addToBasketButton'>${(price * quantity).toFixed(2)} Add to basket</button>
                     </section>
